@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-size: 32px;
+      }
+
+      .engenharia,
+      .farmacia,
+      .matematica {
+        /* display: inline-block; */
+        /* width: 30%; */
+        height: 80px;
+        padding: 12px;
+        background-color: aliceblue;
+        border: 1px solid black;
+      }
+
+      main {
+        border: solid 1px black;
+        background-color: #ccc;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      @media (min-width: 900px) {
+        .engenharia,
+        .farmacia,
+        .matematica {
+          display: inline-block;
+          width: 20%;
+        }
+
+        @media (min-width: 550px) {
+          .engenharia,
+          .farmacia,
+          .matematica {
+            background-color: red;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="engenharia">Engenharia</article>
+      <article class="farmacia">Farmácia</article>
+      <article class="matematica">Matemática</article>
+    </main>
+  </body>
+</html>
