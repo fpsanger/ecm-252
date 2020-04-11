@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 3</title>
+
+    <style>
+      body {
+        background-color: darkgrey;
+      }
+
+      main {
+        background-color: aquamarine;
+        text-align: center;
+        height: 600px;
+        font-size: 20px;
+      }
+
+      .engenharia {
+        background-color: aliceblue;
+        font-size: 50px;
+        width: 100%;
+        padding: 15px 0 15px 0;
+      }
+
+      .imagem {
+        width: 700px;
+        height: 200px;
+      }
+
+      @media (max-height: 400px) {
+        .engenharia {
+          display: inline-block;
+          width: 40%;
+          background-color: yellow;
+        }
+
+        main {
+          display: inline-block;
+          background-color: red;
+          color: whitesmoke;
+        }
+
+        body {
+          background-color: green;
+        }
+
+        .imagem {
+          width: auto;
+          height: 200px;
+          border-radius: 20px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .engenharia {
+          background-color: red;
+          color: whitesmoke;
+          text-align: center;
+        }
+
+        main > p {
+          display: inline-block;
+          background-color: green;
+          border: 1px solid black;
+          color: whitesmoke;
+        }
+
+        .imagem {
+          width: 450px;
+          height: auto;
+          border-radius: 20px;
+        }
+
+        .rodape {
+          padding-top: 100px;
+        }
+
+        body {
+          background-color: indigo;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="engenharia">Engenharia da Computação</article>
+      <p>
+        A Engenharia de Computação está presente em nosso dia a dia e nas mais
+        diversas áreas: Educação, Indústrias, Redes de Comunicação e
+        Dispositivos Móveis, Transportes, Entreterimento, entre outras. Essa
+        diversidade de aplicações para o Engenheiro de Computação qualifica-o
+        para atuar como desenvolvedor, engenheiro, empreendedor, executivo de
+        grandes corporações.
+      </p>
+      <img src=https://maua.br/img/upload/082018/banner-computacao-13102404.jpg
+      class="imagem">
+
+      <p>
+        A graduação em Engenharia de Computação da Mauá oferece aos alunos uma
+        formação com base nos conceitos fundamentais da Engenharia, até a
+        formação especializada em Sistemas Embarcados, Software, Infraestrutura
+        e Segurança, Ciência de Dados e suas inter-relações. O profissional de
+        Engenharia de Computação formado pela Mauá está habilitado para atuar em
+        seguintes áreas e segmentos.
+      </p>
+    </main>
+
+    <div class="rodape">
+      <p style="text-align: center;">
+        <a href="http://www.maua.br"
+          ><img src="https://maua.br/img/default/logo_maua.png"
+        /></a>
+      </p>
+    </div>
+
+    <div class="google">
+      <a href="https://www.google.com/" target="_blank"
+        ><img src=https://clipartart.com/images/www-google-com-clipart-4.jpg
+        height=50 ></a
+      >
+    </div>
+  </body>
+</html>
