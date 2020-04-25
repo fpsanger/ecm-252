@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>Componentes Js</title>
+  </head>
+  <div class="container">
+    <div class="row mb-2">
+      <button
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#meumodal"
+      >
+        Apareça, Modal!
+      </button>
+
+      <div id="meumodal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Título</h5>
+              <button class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Accusamus amet, tenetur quod illum unde omnis sequi voluptate
+              natus eos sit.
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-dismiss="modal">
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <h5>
+              <a
+                href="#collapse1"
+                data-parent="#accordion"
+                data-toggle="collapse"
+                >Collapse 1</a
+              >
+            </h5>
+            <div id="collapse1" class="collapse show">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Perspiciatis veritatis dolores accusamus aut quae quia animi hic
+                inventore optio molestias!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h5>
+              <a
+                href="#collapse2"
+                data-parent="#accordion"
+                data-toggle="collapse"
+                >Collapse 2</a
+              >
+            </h5>
+            <div id="collapse2" class="collapse">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Perspiciatis veritatis dolores accusamus aut quae quia animi hic
+                inventore optio molestias!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h5>
+              <a
+                href="#collapse3"
+                data-parent="#accordion"
+                data-toggle="collapse"
+                >Collapse 3</a
+              >
+            </h5>
+            <div id="collapse3" class="collapse">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Perspiciatis veritatis dolores accusamus aut quae quia animi hic
+                inventore optio molestias!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary d-block mb-4">Leia os detalhes</button>
+      <div>
+        <div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ad
+            vero laudantium aut vitae animi doloremque iusto rerum tenetur,
+            voluptas voluptate et harum, praesentium voluptatem natus, ducimus
+            sequi ratione quidem architecto quisquam quam placeat. Beatae
+            excepturi recusandae qui animi dolor?
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button
+        class="btn btn-primary mb-2"
+        data-toggle="collapse"
+        data-target="#collapse-div"
+      >
+        Leia os detalhes
+      </button>
+      <div id="collapse-div" class="collapse mb-5">
+        <div class="card">
+          <div class="card-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ad
+            vero laudantium aut vitae animi doloremque iusto rerum tenetur,
+            voluptas voluptate et harum, praesentium voluptatem natus, ducimus
+            sequi ratione quidem architecto quisquam quam placeat. Beatae
+            excepturi recusandae qui animi dolor?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button
+        class="btn btn-primary mb-2"
+        data-toggle="collapse"
+        data-target="#collapse-div"
+      >
+        Leia os detalhes
+      </button>
+      <div id="collapse-div" class="collapse mb-5">
+        <div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa ad
+            vero laudantium aut vitae animi doloremque iusto rerum tenetur,
+            voluptas voluptate et harum, praesentium voluptatem natus, ducimus
+            sequi ratione quidem architecto quisquam quam placeat. Beatae
+            excepturi recusandae qui animi dolor?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 m-auto">
+        <div id="carousel1" class="carousel slide mb-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li class="active" data-target="#carousel1" data-slide-to="0"></li>
+            <li data-target="#carousel1" data-slide-to="1"></li>
+            <li data-target="#carousel1" data-slide-to="2"></li>
+          </ol>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://source.unsplash.com/random/400" alt="Slide 1" />
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Primeiro</h3>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://source.unsplash.com/random/400" alt="Slide 2" />
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Segundo</h3>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://source.unsplash.com/random/400" alt="Slide 3" />
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Terceiro</h3>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
+            </div>
+            <a
+              href="#carousel1"
+              class="carousel-control-prev"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a href="#carousel1" class="carousel-control-next" data-slide="next"
+              ><span class="carousel-control-next-icon"></span
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
