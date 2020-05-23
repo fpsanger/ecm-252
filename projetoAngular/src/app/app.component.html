@@ -1,0 +1,58 @@
+<button class="btn btn-primary my-3" (click)="cadastrarPessoa()">
+  Cadastrar Pessoa
+</button>
+
+<ng-container *ngIf="mostrar">
+  <div class="row col-8 my-3">
+    <div class="col-md-4 form-group">
+      <label for="nomeInput">Nome</label>
+      <input
+        autocomplete="false"
+        type="text"
+        class="form-control"
+        id="nomeInput"
+        #nomeInput
+      />
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="Idade">Idade</label>
+      <input
+        autocomplete="false"
+        type="number"
+        class="form-control"
+        id="nomeInput"
+        #idadeInput
+      />
+    </div>
+  </div>
+  <div class="row col-md-3 mx-auto">
+    <button
+      class="btn btn-primary btn-block"
+      (click)="adicionar(nomeInput.value, idadeInput.value)"
+      type="button"
+    >
+      Cadastrar
+    </button>
+  </div>
+
+  <!-- <label for="produtoInput">Produto</label>
+    <input
+      type="text"
+      class="form-control"
+      id="produtoInput"
+      [(ngModel)]="produto"
+      #produtoInput
+    />
+    <button
+      type="button"
+      class="btn btn-primary btn-block"
+      (click)="alterarProduto(produtoInput)"
+    >
+      Alterar produto
+    </button> -->
+</ng-container>
+
+<app-angular-diretivas
+  [pessoas]="pessoas"
+  (pessoaAdicionada)="onAdicionarPessoa($event)"
+></app-angular-diretivas>
