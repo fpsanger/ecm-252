@@ -1,1 +1,57 @@
-<p>forms works!</p>
+<div class="container">
+  <code>{{ pessoa | json }}</code>
+  <form #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="nomeInput">Nome</label>
+        <input
+          type="text"
+          name="nome"
+          placeholder="nome"
+          class="form-control p-4"
+          [(ngModel)]="pessoa.nome"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="foneInput">Fone</label>
+        <input
+          type="text"
+          name="fone"
+          placeholder="fone"
+          class="form-control p-4"
+          [(ngModel)]="pessoa.fone"
+        />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="emailInput">Email</label>
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          class="form-control p-4"
+          [(ngModel)]="pessoa.email"
+        />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="profissaoInput">Profissão</label>
+        <select
+          name=""
+          id="profissaoInput"
+          class="form-control"
+          name="profissao"
+          [(ngModel)]="pessoa.profissao"
+        >
+          <option value="">Selecione</option>
+          <option *ngFor="let profissao of profissoes">{{ profissao }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>
