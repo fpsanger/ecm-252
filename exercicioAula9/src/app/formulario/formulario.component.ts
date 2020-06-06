@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Curso } from '../model/curso';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -9,8 +10,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormularioComponent implements OnInit {
   form: FormGroup;
+  cursos: Curso[] = [];
   @Output() onSave = new EventEmitter();
-  @Input() cursos: Curso[] = [];
+
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {

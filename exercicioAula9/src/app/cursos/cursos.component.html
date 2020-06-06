@@ -1,5 +1,11 @@
 <ng-container>
-  <app-formulario [cursos]="cursos" (onSave)="save($event)"> </app-formulario>
+  <div class="col-md-6 mb-3 mt-3">
+    <button class="btn btn-primary" (click)="toggleRegister()">
+      {{ buttonText }}
+    </button>
+  </div>
+  <app-formulario *ngIf="registerVisible" (onSave)="save($event)">
+  </app-formulario>
   <div class="row mx-auto">
     <div
       *ngFor="let curso of cursos"
