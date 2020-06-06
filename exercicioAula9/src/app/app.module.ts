@@ -7,6 +7,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { OlaComponent } from './ola/ola.component';
+import { CursosCadastradosComponent } from './cursos-cadastrados/cursos-cadastrados.component';
 
 const routes = [
   { path: 'ola', component: OlaComponent },
@@ -16,7 +17,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, CursosComponent, FormularioComponent],
+  declarations: [AppComponent, CursosComponent, FormularioComponent, CursosCadastradosComponent],
   imports: [
     BrowserModule,
     FormsModule,

@@ -12,19 +12,26 @@ export class CursosComponent implements OnInit {
 
   cursos: Curso[] = [];
 
-  buttonText = 'Cadastrar Curso';
+  buttonText1 = 'Cadastrar Curso';
+  buttonText2 = 'Ver Cursos Cadastrados';
   registerVisible = false;
+  cursoVisible = false;
 
   ngOnInit() {}
 
+  toggleCursos() {
+    this.buttonText2 = this.cursoVisible
+      ? 'Ver Cursos Cadastrados'
+      : 'Esconder';
+    this.cursoVisible = !this.cursoVisible;
+  }
+
   toggleRegister() {
-    this.buttonText = this.registerVisible ? 'Cadastrar Curso' : 'Esconder';
+    this.buttonText1 = this.registerVisible ? 'Cadastrar Curso' : 'Esconder';
     this.registerVisible = !this.registerVisible;
   }
 
   save(curso) {
     this.cursos = curso;
-    console.log('Foi');
-    console.log(curso);
   }
 }

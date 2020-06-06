@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Curso } from '../model/curso';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -24,7 +23,6 @@ export class FormularioComponent implements OnInit {
 
   save() {
     this.cursos.push(this.form.value);
-    console.log(this.cursos);
     this.onSave.emit(this.cursos);
   }
 }

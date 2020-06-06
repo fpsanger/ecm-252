@@ -1,11 +1,23 @@
 <ng-container>
   <div class="col-md-6 mb-3 mt-3">
     <button class="btn btn-primary" (click)="toggleRegister()">
-      {{ buttonText }}
+      {{ buttonText1 }}
     </button>
   </div>
   <app-formulario *ngIf="registerVisible" (onSave)="save($event)">
   </app-formulario>
+
+  <div class="col-md-6 mb-3 mt-3">
+    <button class="btn btn-primary" (click)="toggleCursos()">
+      {{ buttonText2 }}
+    </button>
+  </div>
+
+  <app-cursos-cadastrados
+    *ngIf="cursoVisible"
+    [cursos]="cursos"
+  ></app-cursos-cadastrados>
+
   <div class="row mx-auto">
     <div
       *ngFor="let curso of cursos"
