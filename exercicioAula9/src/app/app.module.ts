@@ -8,22 +8,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { OlaComponent } from './ola/ola.component';
 import { CursosCadastradosComponent } from './cursos-cadastrados/cursos-cadastrados.component';
-
-const routes = [
-  { path: 'ola', component: OlaComponent },
-  { path: '', redirectTo: 'ola', pathMatch: 'full' },
-  { path: 'cursos', component: CursosComponent },
-  { path: 'cadastro', component: FormularioComponent },
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, CursosComponent, FormularioComponent, CursosCadastradosComponent],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+  declarations: [
+    AppComponent,
+    CursosComponent,
+    FormularioComponent,
+    CursosCadastradosComponent,
   ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
