@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormsComponent } from './forms/forms.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [AppComponent, FormularioComponent, FormsComponent],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
