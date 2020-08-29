@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CabecalhoComponent } from './clientes/cliente-inserir/cabecalho/cabecalho.component';
 import { ClienteListaComponent } from './clientes/cliente-lista/cliente-lista.component';
 import { ClienteService } from './clientes/service/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ClienteService } from './clientes/service/cliente.service';
     MatToolbarModule,
     MatExpansionModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent],
