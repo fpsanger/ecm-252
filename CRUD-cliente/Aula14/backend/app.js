@@ -18,14 +18,11 @@ const clientes = [
     email: "jaqueline@email.com",
   },
 ];
-
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With",
-    "Content-Type",
-    "Accept"
+    "Origin, X-Requested-With,Content-Type, Accept"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -41,24 +38,10 @@ app.post("/api/clientes", (req, res, next) => {
   res.status(201).json({ mensagem: "Cliente inserido" });
 });
 
-// app.use((req, res, next) => {
-//   console.log("Chegou uma requisição");
-//   next();
-// });
-
-// app.use((req, res, next) => {
-//   res.send("Hello from the Back end");
-// });
-
-// app.use("/api/clientes", (req, res, next) => {
-//   res.send("Hello from the Back end");
-// });
-
 app.use("/api/clientes", (req, res, next) => {
   res.status(200).json({
     mensagem: "Tudo OK",
     clientes: clientes,
   });
 });
-
 module.exports = app;

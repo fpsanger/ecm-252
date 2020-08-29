@@ -16,6 +16,7 @@ export class ClienteListaComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.clienteService.getClientes();
+
     this.clientesSubscription = this.clienteService
       .getListaDeClientesAtualizadaObservable()
       .subscribe((clientes: Cliente[]) => {

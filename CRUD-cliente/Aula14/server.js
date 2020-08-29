@@ -1,11 +1,5 @@
 console.log("Hello, NodeJS");
 
-// const http = require("http");
-// const server = http.createServer((req, res) => {
-//   res.end("Hello from the Back End");
-// });
-// server.listen(process.env.PORT || 3000);
-
 const http = require("http");
 const app = require("./backend/app");
 const port = process.env.PORT || 3000;
