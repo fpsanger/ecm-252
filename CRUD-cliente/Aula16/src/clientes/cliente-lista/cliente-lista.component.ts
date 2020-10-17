@@ -12,6 +12,8 @@ export class ClienteListaComponent implements OnInit, OnDestroy {
   clientes: Cliente[] = [];
   private clientesSubscription: Subscription;
 
+  paginaAtual: number = 1; //definir
+
   constructor(public clienteService: ClienteService) {}
 
   ngOnInit(): void {
