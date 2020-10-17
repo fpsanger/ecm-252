@@ -1,0 +1,71 @@
+<mat-card>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSalvarCliente()" *ngIf="!estaCarregando">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Nome"
+        name="nome"
+        formControlName="nome"
+      />
+      <mat-error *ngIf="form.get('nome').invalid"
+        >Digite um nome válido</mat-error
+      >
+    </mat-form-field>
+
+    <div>
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="selecionaArquivo.click()"
+      >
+        Selecionar Imagem
+      </button>
+      <input
+        type="file"
+        (change)="onImagemSelecionada($event)"
+        #selecionaArquivo
+      />
+    </div>
+
+    <div class="imagem-preview">
+      <img
+        [src]="previewImagem"
+        *ngIf="
+          form.get('imagem').valid && previewImagem && previewImagem !== ''
+        "
+        [alt]="form.value.nome"
+      />
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Fone"
+        name="fone"
+        formControlName="fone"
+      />
+      <mat-error *ngIf="form.get('fone').invalid"
+        >Digite um telefone válido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Email"
+        name="email"
+        formControlName="email"
+      />
+      <mat-error *ngIf="form.get('email').invalid"
+        >Digite um email válido</mat-error
+      >
+    </mat-form-field>
+    <button type="submit" color="accent" mat-raised-button>
+      Salvar Cliente
+    </button>
+  </form>
+</mat-card>
