@@ -3,24 +3,6 @@ const multer = require("multer");
 const router = express.Router();
 const Cliente = require("../models/cliente");
 
-const armazenamento = multer.diskStorage({
-  //requisição, arquivo extraido e uma função a ser
-  //executada, capaz de indicar um erro ou devolver
-  //o diretório em que as fotos ficarão
-  destination: (req, file, callback) => {
-    let e = MIME_TYPE_EXTENSAO_MAPA[file.mimetype]
-      ? null
-      : new Error("Mime Type Invalido");
-    callback(e, "backend/imagens");
-  },
-
-  filename: (req, file, callback) => {
-    const nome = file.originalname.toLowerCase().split(" ").join("-");
-    const extensao = MIME_TYPE_EXTENSAO_MAPA[file.mimetype];
-    callback(null, `${nome}-${Date.now()}.${extensao}`);
-  },
-});
-
 const MIME_TYPE_EXTENSAO_MAPA = {
   "image/png": "png",
   "image/jpeg": "jpg",
@@ -28,12 +10,26 @@ const MIME_TYPE_EXTENSAO_MAPA = {
   "image/bmp": "bmp",
 };
 
+const armazenamento = multer.diskStorage({
+  destination: (req, file, callback) => {
+    let e = MIME_TYPE_EXTENSAO_MAPA[file.mimetype]
+      ? null
+      : new Error("Mime Type Invalido");
+    callback(e, "backend/imagens");
+  },
+  filename: (req, file, callback) => {
+    const nome = file.originalname.toLowerCase().split(" ").join("-");
+    const extensao = MIME_TYPE_EXTENSAO_MAPA[file.mimetype];
+    callback(null, `${nome}-${Date.now()}.${extensao}`);
+  },
+});
+
 router.post(
   "",
   multer({ storage: armazenamento }).single("imagem"),
   (req, res, next) => {
+    //http://www.endereco.com.br/imagens/foto.png
     const imagemURL = `${req.protocol}://${req.get("host")}`;
-
     const cliente = new Cliente({
       nome: req.body.nome,
       fone: req.body.fone,
@@ -43,7 +39,7 @@ router.post(
     cliente.save().then((clienteInserido) => {
       res.status(201).json({
         mensagem: "Cliente inserido",
-        //id: clienteInserido._id
+        //id: clienteInserido._id,
         cliente: {
           id: clienteInserido._id,
           nome: clienteInserido.nome,
@@ -58,7 +54,7 @@ router.post(
 
 router.get("", (req, res, next) => {
   Cliente.find().then((documents) => {
-    console.log(documents);
+    console.log("Documents: ", documents);
     res.status(200).json({
       mensagem: "Tudo OK",
       clientes: documents,
@@ -67,7 +63,6 @@ router.get("", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-  console.log("id: ", req.params.id);
   Cliente.deleteOne({ _id: req.params.id }).then((resultado) => {
     console.log(resultado);
     res.status(200).json({ mensagem: "Cliente removido" });
@@ -89,9 +84,8 @@ router.put("/:id", (req, res, next) => {
 
 router.get("/:id", (req, res, next) => {
   Cliente.findById(req.params.id).then((cli) => {
-    if (cli) {
-      res.status(200).json(cli);
-    } else res.status(404).json({ mensagem: "Cliente não encontrado!" });
+    if (cli) res.status(200).json(cli);
+    else res.status(404).json({ mensagem: "Cliente não encontrado!" });
   });
 });
 

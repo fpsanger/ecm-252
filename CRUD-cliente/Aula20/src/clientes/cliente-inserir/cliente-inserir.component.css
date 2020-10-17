@@ -14,7 +14,10 @@ input[type="file"] {
 .imagem-preview {
   height: 5rem;
   margin: 1rem 0;
+  display: flex;
+  justify-content: center;
 }
-.imagem-preview img {
+
+.imagem-preview > img {
   height: 100%;
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/model/model.cliente';
 import { ClienteService } from '../service/cliente.service';
+
 import { mimeTypeValidator } from './mime-type.validator';
 
 @Component({
@@ -13,11 +15,8 @@ import { mimeTypeValidator } from './mime-type.validator';
 export class ClienteInserirComponent implements OnInit {
   private modo: string = 'criar';
   private idCliente: string;
-
   public cliente: Cliente;
-
   public estaCarregando: boolean = false;
-
   form: FormGroup;
   previewImagem: string;
 
@@ -26,7 +25,7 @@ export class ClienteInserirComponent implements OnInit {
     public route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.form = new FormGroup({
       nome: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)],
@@ -37,14 +36,13 @@ export class ClienteInserirComponent implements OnInit {
       email: new FormControl(null, {
         validators: [Validators.required, Validators.email],
       }),
-
       imagem: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeTypeValidator],
       }),
     });
 
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+    this.route.paramMap.subscribe((paramMap) => {
       if (paramMap.has('idCliente')) {
         this.modo = 'editar';
         this.idCliente = paramMap.get('idCliente');
@@ -58,7 +56,6 @@ export class ClienteInserirComponent implements OnInit {
             email: dadosCli.email,
             imagemURL: null,
           };
-
           this.form.setValue({
             nome: this.cliente.nome,
             fone: this.cliente.fone,
@@ -72,10 +69,19 @@ export class ClienteInserirComponent implements OnInit {
     });
   }
 
+  onImagemSelecionada(event: Event) {
+    const arquivo = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({ imagem: arquivo });
+    this.form.get('imagem').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.previewImagem = reader.result as string;
+    };
+    reader.readAsDataURL(arquivo);
+  }
+
   onSalvarCliente() {
-    if (this.form.invalid) {
-      return;
-    }
+    if (this.form.invalid) return;
     this.estaCarregando = true;
     if (this.modo === 'criar') {
       this.clienteService.adicionarCliente(
@@ -93,17 +99,5 @@ export class ClienteInserirComponent implements OnInit {
       );
     }
     this.form.reset();
-  }
-
-  onImagemSelecionada(event: Event) {
-    const arquivo = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({ imagem: arquivo });
-    this.form.get('imagem').updateValueAndValidity();
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.previewImagem = reader.result as string;
-    };
-    reader.readAsDataURL(arquivo);
   }
 }

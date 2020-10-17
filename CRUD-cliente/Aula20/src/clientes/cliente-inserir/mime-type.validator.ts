@@ -25,9 +25,6 @@ export const mimeTypeValidator = (
           case 'ffd8ffe3':
           case 'ffd8ffe8':
             valido = true;
-            break;
-          default:
-            valido = false;
         }
         observer.next(valido ? null : { mimeTypeInvalido: true });
         observer.complete();
